@@ -500,7 +500,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  data.buffer.push("<img src=\"/assets/images/logo.png\" class=\"logo\">");
+  data.buffer.push("<img src=\"/assets/images/docker-manager.png\" class=\"logo\">");
   }
 
 function program3(depth0,data) {
