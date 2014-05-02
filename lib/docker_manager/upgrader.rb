@@ -27,6 +27,7 @@ class DockerManager::Upgrader
     percent(25)
     run("bundle exec rake multisite:migrate")
     percent(50)
+    log("***  Bundling assets. This might take a while *** ")
     run("bundle exec rake assets:precompile")
     percent(75)
     sidekiq_pid = `ps aux | grep sidekiq.*busy | grep -v grep | awk '{ print $2 }'`.strip.to_i
@@ -36,7 +37,8 @@ class DockerManager::Upgrader
     else
       log("Warning: Sidekiq was not found")
     end
-    percent(85)
+    percent(100)
+    publish('status', 'complete')
     pid = `ps aux  | grep unicorn_launcher | grep -v sudo | grep -v grep | awk '{ print $2 }'`.strip
     if pid.to_i > 0
       log("***********************************************")
@@ -48,8 +50,6 @@ class DockerManager::Upgrader
     else
       log("Did not find unicorn launcher")
     end
-    percent(100)
-    publish('status', 'complete')
   rescue => ex
     publish('status', 'failed')
     STDERR.puts("Docker Manager: FAILED TO UPGRADE")

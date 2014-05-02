@@ -609,12 +609,18 @@ function program4(depth0,data) {
   
   var buffer = '', stack1;
   data.buffer.push("\n          ");
-  stack1 = helpers.unless.call(depth0, "upToDate", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],data:data});
+  stack1 = helpers['if'].call(depth0, "upToDate", {hash:{},hashTypes:{},hashContexts:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n        ");
   return buffer;
   }
 function program5(depth0,data) {
+  
+  
+  data.buffer.push("\n            Up to date\n          ");
+  }
+
+function program7(depth0,data) {
   
   var buffer = '', stack1, helper, options;
   data.buffer.push("\n            <div class='new-version'>\n              <h4>New Version Available!</h4>\n              <ul>\n                <li>Remote Version: ");
@@ -626,12 +632,12 @@ function program5(depth0,data) {
   stack1 = helpers._triageMustache.call(depth0, "latest.commits_behind", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push(" new commits</li>\n              </ul>\n              ");
-  stack1 = helpers['if'].call(depth0, "upgrading", {hash:{},hashTypes:{},hashContexts:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],data:data});
+  stack1 = helpers['if'].call(depth0, "upgrading", {hash:{},hashTypes:{},hashContexts:{},inverse:self.program(10, program10, data),fn:self.program(8, program8, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n            </div>\n          ");
   return buffer;
   }
-function program6(depth0,data) {
+function program8(depth0,data) {
   
   var buffer = '';
   data.buffer.push("\n                <button class=\"btn\" ");
@@ -640,7 +646,7 @@ function program6(depth0,data) {
   return buffer;
   }
 
-function program8(depth0,data) {
+function program10(depth0,data) {
   
   var buffer = '';
   data.buffer.push("\n                <button class=\"btn\" ");
@@ -695,7 +701,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  data.buffer.push("\n  <p>Upgrade completed successfully!</p>\n");
+  data.buffer.push("\n  <p>Upgrade completed successfully!</p>\n  <p>Note: The web server restarts in the background. It's a good idea to wait 30 seconds or so\n     before refreshing your browser to see the latest version of the application.</p>\n");
   }
 
 function program3(depth0,data) {
