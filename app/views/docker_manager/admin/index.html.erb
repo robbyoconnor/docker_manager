@@ -7,16 +7,10 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="/assets/86d61efb.app.min.css">
-
-  <!-- for more details visit: https://github.com/yeoman/grunt-usemin -->
-
-  <script src="/assets/03258c8c.config.min.js"></script>
-
-  <script src="/assets/6b9442df.vendor.min.js"></script>
-
-  <script src="/assets/39f32626.app.min.js"></script>
-
+  <%= javascript_include_tag "docker-manager-vendor" %>
+  <%= javascript_include_tag "docker-manager-app" %>
+  <%= javascript_include_tag "docker-manager-config" %>
+  <%= stylesheet_link_tag "docker-manager-app" %>
 </head>
 <body>
   <script>
