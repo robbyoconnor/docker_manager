@@ -10,9 +10,9 @@ module ::DockerManager
   end
 end
 
-Rails.configuration.assets.precompile += ['docker_manager.js',
-                                          'jquery_include.js',
-                                          'message-bus.js']
+# Rails.configuration.assets.precompile += ['docker_manager.js',
+#                                           'jquery_include.js',
+#                                           'message-bus.js']
 
 after_initialize do
   Discourse::Application.routes.append do
